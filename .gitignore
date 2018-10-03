@@ -1,0 +1,8 @@
+# build/compiled folder
+/compiled/
+# ignore all without extensions
+*
+!/**/
+!*.*
+# vscode specific
+/.vscode/
