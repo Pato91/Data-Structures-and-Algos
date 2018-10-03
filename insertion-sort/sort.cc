@@ -72,7 +72,7 @@ int find_element(std::vector<int> input, int target){
 
 
 /**
- * This algorithm is efficient when sorting small data sets.
+ * This is a depth first algorithm and it is efficient when sorting small data sets.
  * It runs in O(n*n) meaning that for a given input of size n,
  * the running time grows by a factor n indicating that it 
  * be inefficient for large sized data sets.
