@@ -13,7 +13,7 @@ int main(){
     std::vector<int> res = insertion_sort(instance);
     auto end = std::chrono::high_resolution_clock::now();
     double v = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-    print_to_screen(res);
+    // print_to_screen(res);
     printf("\n\n");
     printf("\n\n\nTook %f seconds to execute\n\n\n", v/1000000);
     // print_to_screen(insertion_sort(instance, "DESC"));
@@ -78,11 +78,15 @@ int find_element(std::vector<int> input, int target){
  * be inefficient for large sized data sets.
  * 
  * It's best case run time is when the input data set is already
- * sorted. A simple bench mark showed that; 
+ * sorted. It's worst case run time is when the input data is
+ * sorted in the order reverse to the one the algo sorts the data.
+ * A simple bench mark showed that; 
  *      
- *     Input size (n)  | Sorted? | Running time (in seconds) | sorted Vs. unsorted
- *     100             | false   | 0.000188                  | 0x
- *     100             | true    | 0.000037                  | 4.1x
- *     100,000         | false   | 13.236126                 | 0x
- *     100,000         | true    | 0.004536                  | 2,917.0x
+ *     Input size (n) | Algo sort order | Sorted? | input order | Running time (in seconds) | sorted Vs. unsorted
+ *     100            | INCR            | true    | DECR        | 0.000215                  | 0x
+ *     100            | INCR            | false   | NONE        | 0.000167                  | 1.3x
+ *     100            | INCR            | true    | INCR        | 0.000038                  | 4.7x
+ *     100,000        | INCR            | true    | DECR        | 27.521112                 | 0x
+ *     100,000        | INCR            | false   | NONE        | 13.566058                 | 1.03x
+ *     100,000        | INCR            | true    | INCR        | 0.004121                  | 6,677.3.0x
 */
