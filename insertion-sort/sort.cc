@@ -82,11 +82,11 @@ int find_element(std::vector<int> input, int target){
  * sorted in the order reverse to the one the algo sorts the data.
  * A simple bench mark showed that; 
  *      
- *     Input size (n) | Algo sort order | Sorted? | input order | Running time (in seconds) | sorted Vs. unsorted
- *     100            | INCR            | true    | DECR        | 0.000215                  | 0x
- *     100            | INCR            | false   | NONE        | 0.000167                  | 1.3x
- *     100            | INCR            | true    | INCR        | 0.000038                  | 4.7x
- *     100,000        | INCR            | true    | DECR        | 27.521112                 | 0x
- *     100,000        | INCR            | false   | NONE        | 13.566058                 | 1.03x
- *     100,000        | INCR            | true    | INCR        | 0.004121                  | 6,677.3.0x
+ *     Input size (n) | Algo sort order | Sorted? | input order | Running time (in seconds) | sorted Vs. unsorted | math time   
+ *     100            | INCR            | true    | DECR        | 0.000215                  | 0x                  | an^2 + bn + c(quadratic time)
+ *     100            | INCR            | false   | NONE        | 0.000167                  | 1.3x                | ~close to quadratic
+ *     100            | INCR            | true    | INCR        | 0.000038                  | 4.7x                | an + b(linear time)
+ *     100,000        | INCR            | true    | DECR        | 27.521112                 | 0x                  | an^2 + bn + c(quadratic time)
+ *     100,000        | INCR            | false   | NONE        | 13.566058                 | 1.03x               | ~close to quadratic
+ *     100,000        | INCR            | true    | INCR        | 0.004121                  | 6,677.3.0x          | an + b(linear time)
 */
