@@ -6,8 +6,8 @@ std::vector<int> insertion_sort(std::vector<int> input, std::string order = "ASC
 int find_element(std::vector<int> input, int target);
 
 int main(){
-    std::vector<int> instance(100000);
-    std::generate(instance.begin(), instance.end(), []() -> int {return rand() % 100000;});
+    std::vector<int> instance(100);
+    std::generate(instance.begin(), instance.end(), []() -> int {return rand() % 100;});
     
     auto start = std::chrono::high_resolution_clock::now();
     std::vector<int> res = insertion_sort(instance);
@@ -71,5 +71,18 @@ int find_element(std::vector<int> input, int target){
 }
 
 
-
-//clang++ -std=c++17 -stdlib=libc++ sort.cpp -o program
+/**
+ * This algorithm is efficient when sorting small data sets.
+ * It runs in O(n*n) meaning that for a given input of size n,
+ * the running time grows by a factor n indicating that it 
+ * be inefficient for large sized data sets.
+ * 
+ * It's best case run time is when the input data set is already
+ * sorted. A simple bench mark showed that; 
+ *      
+ *     Input size (n)  | Sorted? | Running time (in seconds) | sorted Vs. unsorted
+ *     100             | false   | 0.000188                  | 0x
+ *     100             | true    | 0.000037                  | 4.1x
+ *     100,000         | false   | 13.236126                 | 0x
+ *     100,000         | true    | 0.004536                  | 2,917.0x
+*/
