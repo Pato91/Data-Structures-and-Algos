@@ -11,7 +11,7 @@ In order to build quickly, you have to run the (clang++)command (at the root of 
 Incase you are using gcc, please find out what compile command is specific to gcc.
 
 Then run the command (for linux) at the root of the project directory;
-> ./build
+> ./build /to/file(from pwd/cwd)/to/be/compiled
 
 ## How do I contribute?
 Contact me at ayebalebj@gmail.com.
