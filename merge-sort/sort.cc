@@ -15,8 +15,8 @@ void merge_sort(BidirIt first, BidirIt last, Compare com = Compare {}){
 };
 
 int main(){
-    std::vector<int> instance(1000000);
-    std::generate(instance.begin(), instance.end(), []() -> int {return rand() % 1000000;});
+    std::vector<int> instance(10000000);
+    std::generate(instance.begin(), instance.end(), []() -> int {return rand() % 10000000;});
     auto start = std::chrono::high_resolution_clock::now();
     merge_sort(instance.begin(), instance.end());
     // merge_sort(instance.begin(), instance.end(), std::greater<> {}); // decending
@@ -24,6 +24,8 @@ int main(){
     double v = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
     printf("\n\n");
     printf("\n\n\nTook %f seconds to execute\n\n\n", v/1000000);
+
+}
 
 
 /**
