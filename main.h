@@ -9,6 +9,8 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <regex>
+#include <functional>
+#include <iterator>
 
 #ifdef WINDOWS
 #include <direct.h>
