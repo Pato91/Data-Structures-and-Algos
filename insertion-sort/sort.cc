@@ -2,6 +2,7 @@
 
 std::vector<int> insertion_sort_asc(std::vector<int>);
 std::vector<int> insertion_sort_desc(std::vector<int> input);
+void insertion_sort_recursive_asc(std::vector<int> * input, int n);
 std::vector<int> insertion_sort(std::vector<int> input, std::string order = "ASC");
 int find_element(std::vector<int> input, int target);
 
@@ -68,6 +69,20 @@ int find_element(std::vector<int> input, int target){
             result = -1;
     }
     return result;
+}
+
+void insertion_sort(std::vector<int> * input, int n){
+    if(n <= 1)
+        return;
+    insertion_sort_recursive_asc(input, n-1);
+    int curr_element = input->at(n-1);
+    int j = n - 2;
+
+    while(j >= 0 && input->at(j) > curr_element){
+        input->at(j + 1) = input->at(j);
+        j -= 1;
+    }
+    input->at(j+1) = curr_element;
 }
 
 
