@@ -1,4 +1,4 @@
-#include "../main.h"
+#include "../../main.h"
 
 template <typename BidirIt, typename Compare = std::less<>>
 void merge_sort(BidirIt first, BidirIt last, Compare com = Compare {}){
