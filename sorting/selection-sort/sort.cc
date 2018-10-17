@@ -1,4 +1,4 @@
-#include "../main.h"
+#include "../../main.h"
 
 std::vector<int> selection_sort_asc(std::vector<int> input);
 std::vector<int> selection_sort_desc(std::vector<int> input);
