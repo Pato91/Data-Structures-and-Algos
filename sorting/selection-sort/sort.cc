@@ -1,8 +1,4 @@
-#include "../../main.h"
-
-std::vector<int> selection_sort_asc(std::vector<int> input);
-std::vector<int> selection_sort_desc(std::vector<int> input);
-std::vector<int> selection_sort(std::vector<int> input, std::string order = "ASC");
+#include "./sort.h"
 
 int main(){
     std::vector<int> instance(200000);
@@ -15,36 +11,6 @@ int main(){
     // print_to_screen(res);
     printf("\n\n");
     printf("\n\n\nTook %f seconds to execute\n\n\n", v/1000000);
-}
-
-std::vector<int> selection_sort_asc(std::vector<int> input){
-    std::vector<int> *sorted = &input;
-    int min;
-    for(int i = 0; i < sorted->size(); ++i){
-        min = sorted->at(i);
-        for(int j = i + 1; j < sorted->size(); ++j){
-            if(sorted->at(j) < min)
-                std::iter_swap(&min, &sorted->at(j));
-        }
-    }
-    return *sorted;
-}
-
-std::vector<int> selection_sort_desc(std::vector<int> input){
-    std::vector<int> *sorted = &input;
-    int min;
-    for(int i = 0; i < sorted->size(); ++i){
-        min = sorted->at(i);
-        for(int j = i + 1; j < sorted->size(); ++j){
-            if(sorted->at(j) > min)
-                std::iter_swap(&min, &sorted->at(j));
-        }
-    }
-    return *sorted;
-}
-
-std::vector<int> selection_sort(std::vector<int> input, std::string order){
-    return order == "ASC" ? selection_sort_asc(input) : selection_sort_desc (input);
 }
 
 /**
