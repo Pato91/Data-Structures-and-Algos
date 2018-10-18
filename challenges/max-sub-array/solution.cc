@@ -24,3 +24,11 @@ int main(){
         );
     return 0;
 }
+
+/**
+ * This is algorithm uses the devide and conquer strategy. 
+ * It runs in O(n * log(n))<worst case> meaning that for a 
+ * given input of size n, the running time grows by a 
+ * factor log (n) indicating that it is efficient for large
+ *  sized data sets.  
+*/
