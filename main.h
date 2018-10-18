@@ -11,6 +11,8 @@
 #include <regex>
 #include <functional>
 #include <iterator>
+#include <tuple>
+#include <limits>
 
 #ifdef WINDOWS
 #include <direct.h>
