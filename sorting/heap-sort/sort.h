@@ -10,7 +10,7 @@
 
 struct Heap {
     int heap_size = 0;
-    std::vector<int> list;
+    std::vector<int> * list;
 };
 
 void max_heapify(Heap * heap, int index){
@@ -18,31 +18,31 @@ void max_heapify(Heap * heap, int index){
     int left_index = left(index);
     int right_index = right(index);
 
-    if(left_index <= heap->heap_size && heap->list.at(left_index) > heap->list.at(index))
+    if(left_index <= heap->heap_size && heap->list->at(left_index) > heap->list->at(index))
         largest = left_index;
     else
         largest = index;
     
-    if(right_index <= heap->heap_size && heap->list.at(right_index) > heap->list.at(index))
+    if(right_index <= heap->heap_size && heap->list->at(right_index) > heap->list->at(largest))
         largest = right_index;
 
     if(largest != index){
-        std::iter_swap(&heap->list.at(index), &heap->list.at(largest));
+        std::iter_swap(&heap->list->at(index), &heap->list->at(largest));
         max_heapify(heap, largest);
     }
 }
 
 void build_max_heap(Heap * heap){
-    heap->heap_size = heap->list.size() - 1;
-    for(int i = heap->list.size(); i > -1; --i){
+    heap->heap_size = heap->list->size() - 1;
+    for(int i = std::floor((heap->list->size() - 1) / 2); i >= 0; --i){
         max_heapify(heap, i);
     }
 }
 
 void heap_sort(Heap * heap){
     build_max_heap(heap);
-    for(int i = (heap->list.size() - 1); i > 0; --i){
-        std::iter_swap(&heap->list.at(0), &heap->list.at(i));
+    for(int i = (heap->list->size() - 1); i >= 1; --i){
+        std::iter_swap(&heap->list->at(0), &heap->list->at(i));
         heap->heap_size -= 1;
         max_heapify(heap, 0);
     }
