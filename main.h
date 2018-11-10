@@ -13,6 +13,7 @@
 #include <iterator>
 #include <tuple>
 #include <limits>
+#include <cmath>
 
 #ifdef WINDOWS
 #include <direct.h>
