@@ -14,6 +14,7 @@
 #include <tuple>
 #include <limits>
 #include <cmath>
+#include <benchmark/benchmark.h>
 
 #ifdef WINDOWS
 #include <direct.h>
@@ -46,5 +47,11 @@ std::string to_lower(std::string s){
 void generate_rand_values(std::vector<int> * range, const int rand_max){
     std::generate(range->begin(), range->end(), [&rand_max]() -> int { return rand() % rand_max;});
 }
+
+static void BM_algos(benchmark::State& state){
+    
+}
+
+BENCHMARK(BM_algos);
 
 #endif
