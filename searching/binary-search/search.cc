@@ -2,7 +2,7 @@
 
 int main(){
     std::vector<int> instance(1000000);
-    std::generate(instance.begin(), instance.end(), []() -> int {return rand() % 1000000;});
+    generate_rand_values(&instance, 1000000);
     merge_sort(instance.begin(), instance.end());
     auto start = std::chrono::high_resolution_clock::now();
     int res = binary_search(&instance, instance.at(1002), instance.size());

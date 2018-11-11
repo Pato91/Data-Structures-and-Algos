@@ -2,7 +2,7 @@
 
 int main(){
     std::vector<int> instance(100);
-    std::generate(instance.begin(), instance.end(), []() -> int {return rand() % 100;});
+    generate_rand_values(&instance, 10000000);
     
     auto start = std::chrono::high_resolution_clock::now();
     std::vector<int> res = insertion_sort(instance);
