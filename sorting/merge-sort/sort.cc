@@ -2,7 +2,7 @@
 
 int main(){
     std::vector<int> instance(10000000);
-    std::generate(instance.begin(), instance.end(), []() -> int {return rand() % 10000000;});
+    generate_rand_values(&instance, 10000000);
     auto start = std::chrono::high_resolution_clock::now();
     merge_sort(instance.begin(), instance.end());
     // merge_sort(instance.begin(), instance.end(), std::greater<> {}); // decending

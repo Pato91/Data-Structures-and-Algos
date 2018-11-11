@@ -2,7 +2,7 @@
 
 int main(){
     std::vector<int> instance(1000000);
-    std::generate(instance.begin(), instance.end(), []() -> int {return rand() % 1000000;});
+    generate_rand_values(&instance, 10000000);
     Heap heap;
     heap.list = &instance;
     // heap_sort(&heap);
