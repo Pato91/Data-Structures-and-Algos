@@ -44,7 +44,7 @@ std::string to_lower(std::string s){
 }
 
 void generate_rand_values(std::vector<int> * range, const int rand_max){
-    std::generate(range->begin(), range->end(), [&rand_max]() -> int {return rand() % rand_max;});
+    std::generate(range->begin(), range->end(), [&rand_max]() -> int { return rand() % rand_max;});
 }
 
 #endif
