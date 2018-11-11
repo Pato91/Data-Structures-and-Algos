@@ -3,12 +3,11 @@
 int main(){
     std::vector<int> instance(1000000);
     std::generate(instance.begin(), instance.end(), []() -> int {return rand() % 1000000;});
-    Heap heap;
-    heap.list = &instance;
+    CustomHeap::IntegerHeap heap(&instance);
     // heap_sort(&heap);
     // std::reverse(heap.list->begin(), heap.list->end());
     auto start = std::chrono::high_resolution_clock::now();
-    heap_sort(&heap);
+    heap.heap_sort();
     auto end = std::chrono::high_resolution_clock::now();
     double v = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
     // print_to_screen(*heap.list);
