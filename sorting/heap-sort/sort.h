@@ -12,9 +12,6 @@ namespace CustomHeap{
         int heap_size = 0;
         std::vector<int> * heap;
 
-        public:
-        IntegerHeap(std::vector<int> * list): heap(list){}
-
         void max_heapify(int index){
             int largest;
             int left_index = left(index);
@@ -41,6 +38,9 @@ namespace CustomHeap{
             }
         }
 
+        public:
+        IntegerHeap(std::vector<int> * list): heap(list){}
+
         void heap_sort(){
             this->build_max_heap();
             for(int i = (this->heap->size() - 1); i >= 1; --i){
@@ -48,6 +48,20 @@ namespace CustomHeap{
                 this->heap_size -= 1;
                 this->max_heapify(0);
             }
+        }
+
+        int heap_maximum(){
+            return this->heap->at(0);
+        }
+
+        int heap_extract_maximum(){
+            if(this->heap_size < 1)
+                return -1;
+            int max = this->heap->at(0);
+            this->heap->insert(this->heap->begin(), (this->heap_size - 1));
+            this->heap_size -= 1;
+            this->max_heapify(0);
+            return max;
         }
     };
 }
